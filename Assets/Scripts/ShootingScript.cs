@@ -26,19 +26,34 @@ public class ShootingScript : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            float CurrentTime = Time.time;
+           // float CurrentTime = Time.time;
 
             // Have a delay so we don't shoot too many bullets
-            if (CurrentTime - lastFiredTime > fireDelay)
-            {
-                Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
+           // if (CurrentTime - lastFiredTime > fireDelay)
+           // {
+            //    Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
 
-                Instantiate(bullet, spawnPosition, transform.rotation);
+             //   Instantiate(bullet, spawnPosition, transform.rotation);
 
-                lastFiredTime = CurrentTime;
-            }
+             //   lastFiredTime = CurrentTime;
+            //}
 
             //print("Shoot!");
+        }
+    }
+
+    public void Shoot()
+    {
+        float CurrentTime = Time.time;
+
+        // Have a delay so we don't shoot too many bullets
+        if (CurrentTime - lastFiredTime > fireDelay)
+        {
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
+
+            Instantiate(bullet, spawnPosition, transform.rotation);
+
+            lastFiredTime = CurrentTime;
         }
     }
 
