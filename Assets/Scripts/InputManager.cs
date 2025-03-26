@@ -6,14 +6,14 @@ public class InputManager : MonoBehaviour
 {
 
     private Movement movement;
-    private ShootingScript shooting;
+    private IWeapon shooting;
 
 
     // Start is called before the first frame update
     void Start()
     {
         movement = GetComponent<Movement>();
-        shooting = GetComponent<ShootingScript>();
+        shooting = GetComponent<IWeapon>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
 
         movement.Move(Vector2.right * input);
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             shooting.Shoot();
         }

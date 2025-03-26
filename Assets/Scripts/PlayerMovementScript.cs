@@ -18,17 +18,11 @@ public class PlayerMovementScript : MonoBehaviour
         // This means that we don't need to call GetComponent more than once! This makes our game faster. (GetComponent is SLOW)
         OURRigidbody = GetComponent<Rigidbody2D>();
     }
-    // Update is called once per frame
-    void Update()
+   
+    public void HorizontalMovement(float HorizontalInput)
     {
-        float HorizontalInput = Input.GetAxis("Horizontal");
-
-        if (HorizontalInput != 0.0f)
-        {
-            Vector2 ForceToAdd = Vector2.right * HorizontalInput * horizontalAcceleration * Time.deltaTime;
-            OURRigidbody.AddForce(ForceToAdd);
-            //print(HorizontalInput);
-        }
+        Vector2 ForceToAdd = Vector2.right * HorizontalInput * horizontalAcceleration * Time.deltaTime;
+        OURRigidbody.AddForce(ForceToAdd);
     }
 }
 

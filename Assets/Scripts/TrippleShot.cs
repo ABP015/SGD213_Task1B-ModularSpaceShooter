@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShootingScript : MonoBehaviour, IWeapon
+public class TrippleShot : MonoBehaviour, IWeapon 
 {
 
     [SerializeField]
@@ -49,9 +49,14 @@ public class ShootingScript : MonoBehaviour, IWeapon
         // Have a delay so we don't shoot too many bullets
         if (CurrentTime - lastFiredTime > fireDelay)
         {
-            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
+            for(float i = -0.5f; i < 1f; i+=0.5f)
+            {
 
-            Instantiate(bullet, spawnPosition, transform.rotation);
+                Vector2 spawnPosition = new Vector2(transform.position.x + i, transform.position.y + bulletOffset);
+
+                Instantiate(bullet, spawnPosition, transform.rotation);
+            }
+
 
             lastFiredTime = CurrentTime;
         }
