@@ -21,27 +21,6 @@ public class TrippleShot : MonoBehaviour, IWeapon
             + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       /* if (Input.GetButton("Fire1"))
-        {
-           float CurrentTime = Time.time;
-
-             Have a delay so we don't shoot too many bullets
-            if (CurrentTime - lastFiredTime > fireDelay)
-            {
-                Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + bulletOffset);
-
-                Instantiate(bullet, spawnPosition, transform.rotation);
-
-                lastFiredTime = CurrentTime;
-            }
-
-            print("Shoot!");
-        }*/
-    }
-
     public void Shoot()
     {
         float CurrentTime = Time.time;
@@ -49,6 +28,7 @@ public class TrippleShot : MonoBehaviour, IWeapon
         // Have a delay so we don't shoot too many bullets
         if (CurrentTime - lastFiredTime > fireDelay)
         {
+            // changes the spawn location of bullets to avoid overlapping
             for(float i = -0.5f; i < 1f; i+=0.5f)
             {
 
@@ -68,7 +48,8 @@ public class TrippleShot : MonoBehaviour, IWeapon
     /// </summary>
     /// <param name="number">any integer</param>
     /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number) {
+    public float SampleMethod(int number) 
+    {
         return number;
     }
 
