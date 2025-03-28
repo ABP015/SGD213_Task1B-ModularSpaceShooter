@@ -9,20 +9,20 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField]
     private float horizontalAcceleration = 5000f;
 
-    private Rigidbody2D OURRigidbody;
+    private Rigidbody2D ourRigidbody;
 
     // Use this for initialization
     void Start()
     {
         // Get OurRigidbodyComponent once at the start of the game and store a reference to it
         // This means that we don't need to call GetComponent more than once! This makes our game faster. (GetComponent is SLOW)
-        OURRigidbody = GetComponent<Rigidbody2D>();
+        ourRigidbody = GetComponent<Rigidbody2D>();
     }
    
     public void HorizontalMovement(float HorizontalInput)
     {
         Vector2 ForceToAdd = Vector2.right * HorizontalInput * horizontalAcceleration * Time.deltaTime;
-        OURRigidbody.AddForce(ForceToAdd);
+        ourRigidbody.AddForce(ForceToAdd);
     }
 }
 

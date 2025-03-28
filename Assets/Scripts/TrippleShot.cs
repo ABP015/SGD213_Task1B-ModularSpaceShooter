@@ -16,8 +16,8 @@ public class TrippleShot : MonoBehaviour, IWeapon
     void Start()
     {
         // Do some math to perfectly spawn bullets in front of us
-        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 // Half of our size
-            + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
+        // Half of our size plus half of the bullet size
+        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2; 
     }
 
     public void Shoot()
@@ -30,26 +30,11 @@ public class TrippleShot : MonoBehaviour, IWeapon
             // changes the spawn location of bullets to avoid overlapping
             for(float i = -0.5f; i < 1f; i+=0.5f)
             {
-
                 Vector2 spawnPosition = new Vector2(transform.position.x + i, transform.position.y + bulletOffset);
-
                 Instantiate(bullet, spawnPosition, transform.rotation);
             }
-
 
             lastFiredTime = CurrentTime;
         }
     }
-
-    /// <summary>
-    /// SampleMethod is a sample of how to use abstraction by
-    /// specification. It converts a provided integer to a float.
-    /// </summary>
-    /// <param name="number">any integer</param>
-    /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number) 
-    {
-        return number;
-    }
-
 }
