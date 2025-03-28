@@ -10,7 +10,6 @@ public enum TagListType
 
 public class DestroyedOnCollision : MonoBehaviour
 {
-
     [SerializeField]
     private TagListType tagListType = TagListType.blacklist;
 
@@ -38,7 +37,6 @@ public class DestroyedOnCollision : MonoBehaviour
         else
         {
             // Use default collision code
-            Destroy(gameObject);
         }
     }
 }

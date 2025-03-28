@@ -18,9 +18,6 @@ public class SpawnOverTimeScript : MonoBehaviour
     {
         ourRenderer = GetComponent<Renderer>();
 
-        // Stop our Spawner from being visible!
-        ourRenderer.enabled = false;
-
         // Call the given function after spawnDelay seconds, 
         // and then repeatedly call it after spawnDelay seconds.
         InvokeRepeating("Spawn", spawnDelay, spawnDelay);

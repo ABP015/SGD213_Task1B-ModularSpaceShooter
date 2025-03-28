@@ -6,26 +6,32 @@ public class InputManager : MonoBehaviour
 {
 
     private Movement movement;
-    private IWeapon shooting;
-
+    private TrippleShot shooting;
 
     // Start is called before the first frame update
     void Start()
     {
         movement = GetComponent<Movement>();
-        shooting = GetComponent<IWeapon>();
+        shooting = GetComponent<TrippleShot>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // controls the player movement
         float input = Input.GetAxis("Horizontal");
 
         movement.Move(Vector2.right * input);
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            shooting.Shoot();
-        }
+        // fires bullet when button bound to "fire1" is pressed
+        if (Input.GetButton("Fire1"))
+            if (shooting != null)
+            {
+                shooting.Shoot();
+            }
+            else
+            {
+                Debug.Log("Attach the shooting script!");
+            }
     }
 }
