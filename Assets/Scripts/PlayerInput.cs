@@ -5,14 +5,12 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private PlayerMovementScript playerMovementScript;
-    private ShootingScript shootingScript;
     private TrippleShot trippleShotScript;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovementScript>();
-        shootingScript = GetComponent<ShootingScript>();
         trippleShotScript = GetComponent<TrippleShot>();
     }
 

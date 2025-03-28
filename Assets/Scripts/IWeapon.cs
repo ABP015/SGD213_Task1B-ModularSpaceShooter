@@ -5,15 +5,4 @@ using UnityEngine;
 public interface IWeapon 
 {
     public void Shoot() { }
-
-    //public float GetOffset { get; set; }
-}
-public interface IEngine
-{
-
-}
-
-public interface IInteractable
-{
-
 }

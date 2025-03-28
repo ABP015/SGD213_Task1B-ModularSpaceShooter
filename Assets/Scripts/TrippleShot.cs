@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TrippleShot : MonoBehaviour, IWeapon 
 {
-
     [SerializeField]
     private GameObject bullet;
 
