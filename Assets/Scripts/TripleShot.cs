@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrippleShot : MonoBehaviour, IWeapon 
+public class TripleShot : MonoBehaviour, IWeapon 
 {
     [SerializeField]
     private GameObject bullet;
