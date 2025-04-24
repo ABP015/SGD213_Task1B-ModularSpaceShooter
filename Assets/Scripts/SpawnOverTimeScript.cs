@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnOverTimeScript : MonoBehaviour
 {
     // Object to spawn
     [SerializeField]
     private GameObject spawnObject;
+
+    [SerializeField]
+    private List<GameObject> spawnList = new List<GameObject>();  
 
     // Delay between spawns
     [SerializeField]
@@ -32,6 +36,7 @@ public class SpawnOverTimeScript : MonoBehaviour
         Vector2 spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);
 
         // Spawn the object at the 'spawnPoint' position
-        Instantiate(spawnObject, spawnPoint, Quaternion.identity);
+        GameObject newSpawn = Instantiate(spawnObject, spawnPoint, Quaternion.identity);
+        spawnList.Add(newSpawn);
     }
 }
