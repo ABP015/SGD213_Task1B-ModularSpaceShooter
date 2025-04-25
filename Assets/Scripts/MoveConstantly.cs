@@ -23,14 +23,20 @@ public class MoveConstantly : MonoBehaviour
     /// It is expected that when setting the direction, the provided Vector2 is a unit vector. If not,
     /// it will be automatically normalised.
     /// </summary>
-    public Vector2 Direction {
-        get {
+    public Vector2 Direction 
+    {
+        get 
+        {
             return direction;
         }
-        set {
-            if (value.magnitude == 1) {
+        set 
+        {
+            if (value.magnitude == 1) 
+            {
                 direction = value;
-            } else {
+            } 
+            else 
+            {
                 direction = value.normalized;
             }
         }
