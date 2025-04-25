@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     private EngineBase playerMovement;
 
     private WeaponBase weapon;
+
     public WeaponBase Weapon
     {
         get
