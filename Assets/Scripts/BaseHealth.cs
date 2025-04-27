@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IHealth
+public class BaseHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     protected int currentHealth;

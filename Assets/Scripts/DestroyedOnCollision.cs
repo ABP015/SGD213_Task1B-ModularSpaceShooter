@@ -8,8 +8,13 @@ using System.Collections.Generic;
 /// </summary>
 public class DestroyedOnCollision : DetectCollisionBase
 {
-    protected override void ProcessCollision(GameObject other) {
+    [SerializeField]
+    private int bulletDamage;
+
+    protected override void ProcessCollision(GameObject other) 
+    {
         base.ProcessCollision(other);
-        Destroy(other);
+        //Destroy(other);
+        other.GetComponent<IHealth>().TakeDamage(bulletDamage);
     }
 }
