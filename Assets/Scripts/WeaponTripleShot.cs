@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class WeaponTripleShot : WeaponBase 
 {
+    [SerializeField]
+    private ObjectPooler objectPool;
 
+    private float bulletOffset = 2f;
     /// <summary>
     /// Shoot will spawn a three bullets, provided enough time has passed compared to our fireDelay.
     /// </summary>
+
+    void Start()
+    {
+        // Do some math to perfectly spawn bullets in front of us
+        // Half of our size plus half of the bullet size
+        bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 + bullet.GetComponent<Renderer>().bounds.size.y / 2;
+    }
+
     public override void Shoot() 
     {
         // get the current time
@@ -22,8 +33,10 @@ public class WeaponTripleShot : WeaponBase
             for (int i = 0; i < 3; i++) 
             {
                 // create our bullet
-                GameObject newBullet = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation);
+                // GameObject newBullet = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation);
                 // set their direction
+                GameObject newBullet = objectPool.GetObjectFromPool();
+                newBullet.SetActive(true);
                 newBullet.GetComponent<MoveConstantly>().Direction = new Vector2(x + 0.5f * i, 0.5f);
             }
 

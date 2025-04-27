@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
 
     // local references
     private EngineBase playerMovement;
-
+    private IWeapon shooting;
     private WeaponBase weapon;
 
     public WeaponBase Weapon
@@ -31,6 +31,7 @@ public class PlayerInput : MonoBehaviour
     {
         playerMovement = GetComponent<EngineBase>();
         weapon = GetComponent<WeaponBase>();
+        shooting = GetComponent<IWeapon>();
     }
 
     void Update()
@@ -57,9 +58,10 @@ public class PlayerInput : MonoBehaviour
                 // tell shootingScript to shoot
                 weapon.Shoot();
             }
-        }
+        }        
     }
 
+   
     /// <summary>
     /// SwapWeapon handles creating a new WeaponBase component based on the given weaponType. This
     /// will popluate the newWeapon's controls and remove the existing weapon ready for usage.

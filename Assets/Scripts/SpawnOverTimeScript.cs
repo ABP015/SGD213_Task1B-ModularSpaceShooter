@@ -39,4 +39,22 @@ public class SpawnOverTimeScript : MonoBehaviour
         GameObject newSpawn = Instantiate(spawnObject, spawnPoint, Quaternion.identity);
         spawnList.Add(newSpawn);
     }
+
+    private void Update()
+    {
+        int enemiesDead = 0;
+        // end level after 10 enemies are dead
+        foreach (GameObject spawn in spawnList)
+        {
+            if (spawn == null)
+            {
+                enemiesDead++;
+                if (enemiesDead++ > 10) 
+                {
+                   // advanced to next level
+                }
+            }
+               
+        }
+    }
 }

@@ -34,9 +34,9 @@ public class ObjectPooler : MonoBehaviour
         return obj;
     }
 
-    public void ReturnObjectToPool()
+    public void ReturnObjectToPool(GameObject obj)
     {
-
+        objectPool.Add(obj);
     }
 
 }

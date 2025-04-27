@@ -21,7 +21,6 @@ public class WeaponMachineGun : WeaponBase
         if (currentTime - lastFiredTime > fireDelay) 
         {
             // create our bullet
-            //GameObject newBullet = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation);
             GameObject newBullet = objectPool.GetObjectFromPool();
             newBullet.SetActive(true);
             newBullet.transform.position = bulletSpawnPoint.position;
